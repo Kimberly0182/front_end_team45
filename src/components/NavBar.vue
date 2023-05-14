@@ -24,7 +24,7 @@
   .navbar {
     display: flex;
     justify-content: center;
-    background-color: #ffd700;
+    background-color: #ffa000;
     padding: 1rem;
   }
   
