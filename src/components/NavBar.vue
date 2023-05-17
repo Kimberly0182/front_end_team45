@@ -25,6 +25,7 @@
     display: flex;
     justify-content: center;
     background-color: #ffa000;
+    font-family: 'Alegreya', serif;
     padding: 1rem;
   }
   
