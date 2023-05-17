@@ -23,13 +23,8 @@
   </div>
 
   <!-- two pie charts about sentiments-->
-  <!-- mastodon -->
   <div>
-    <PieChart />
-  </div>
-  <!-- twitter -->
-  <div>
-    <PieChart />
+    <DoughnutDiagram />
   </div>
 
 
@@ -43,7 +38,7 @@
 <script>
 import ScatterPlot from './ScatterPlot';
 import BarChart from './BarChart.vue';
-import PieChart from './PieChart.vue';
+import DoughnutDiagram from './DoughnutDiagram.vue';
 import EmojiCloud from './EmojiCloud.vue';
 
 export default {
@@ -51,8 +46,8 @@ export default {
   components: {
     ScatterPlot,
     BarChart,
-    PieChart,
     EmojiCloud,
+    DoughnutDiagram,
   },
 };
 </script>
