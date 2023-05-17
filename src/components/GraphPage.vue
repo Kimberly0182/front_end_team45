@@ -9,23 +9,43 @@
     </div>
   </div>
 
+  <!-- Age -->
+  <div>
+
+  </div>
+
+  <!-- Nationality -->
+  <div>
+
+  </div>
+
+  <!-- Different language -->
+  <div>
+
+  </div>
+
+  <!-- two pie charts about sentiments-->
   <div class="grid">
     <div class="chart white-bg">
-      <!-- 第一个图表 -->
+      <!-- mastodon -->
     </div>
     <div class="chart white-bg">
-      <!-- 第二个图表 -->
-    </div>
-    <div class="chart white-bg">
-      <!-- 第三个图表 -->
-    </div>
-    <div class="chart white-bg">
-      <!-- 第四个图表 -->
+      <!-- twitter -->
     </div>
   </div>
 
+
+  <!-- rank of emoji based on sentiments (mastodon and twitter) -->
+  <div>
+    <!-- mastodon -->
+
+    <!-- twitter -->
+  </div>
+
+
+  <!-- reference -->
   <div class="reference">
-    <!-- reference内容 -->
+    
   </div>
 
 </template>
