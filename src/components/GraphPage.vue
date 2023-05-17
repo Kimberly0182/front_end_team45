@@ -19,7 +19,7 @@
 
   <!-- Different language -->
   <div>
-
+    <BarChart />
   </div>
 
   <!-- two pie charts about sentiments-->

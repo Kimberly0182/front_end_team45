@@ -8,7 +8,6 @@
   export default {
     name: "BarChart",
     mounted() {
-      // sample data
       const data = Array.from({length: 29}, () => Math.floor(Math.random() * 50) - 25);
   
       const svgWidth = 800, svgHeight = 400;
