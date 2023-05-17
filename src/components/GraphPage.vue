@@ -38,12 +38,6 @@
     <EmojiCloud />
   </div>
 
-
-  <!-- reference -->
-  <div class="reference">
-    
-  </div>
-
 </template>
 
 <script>
@@ -98,18 +92,5 @@ export default {
 
 .age {
   padding: 2rem;
-}
-
-.chart {
-  background-color: white;
-  padding: 2rem;
-}
-
-.reference {
-  padding: 2rem;
-}
-
-.white-bg {
-  background-color: white;
 }
 </style>
