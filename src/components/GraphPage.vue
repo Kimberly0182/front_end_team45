@@ -35,9 +35,7 @@
 
   <!-- rank of emoji based on sentiments (mastodon and twitter) -->
   <div>
-    <!-- mastodon -->
-
-    <!-- twitter -->
+    <EmojiCloud />
   </div>
 
 
@@ -51,12 +49,14 @@
 <script>
 import ScatterPlot from './ScatterPlot';
 import BarChart from './BarChart.vue';
+import EmojiCloud from './EmojiCloud.vue';
 
 export default {
   name: "GraphPage",
   components: {
     ScatterPlot,
-    BarChart
+    BarChart,
+    EmojiCloud,
   },
 };
 </script>
