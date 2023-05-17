@@ -110,7 +110,6 @@ export default {
 }
 
 .reference {
-  background-color: #FFECB3;
   padding: 2rem;
 }
 
