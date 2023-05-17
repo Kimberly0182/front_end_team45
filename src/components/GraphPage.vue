@@ -14,7 +14,7 @@
 
   <!-- Nationality -->
   <div>
-
+    <BarChart />
   </div>
 
   <!-- Different language -->
@@ -50,11 +50,13 @@
 
 <script>
 import ScatterPlot from './ScatterPlot';
+import BarChart from './BarChart.vue';
 
 export default {
   name: "GraphPage",
   components: {
-    ScatterPlot
+    ScatterPlot,
+    BarChart
   },
 };
 </script>
