@@ -28,10 +28,10 @@
 
       const generateCloud = () => {
         const data = [
-          { text: '😀', size: 60 },
-          { text: '🥰', size: 50 },
-          { text: '🥳', size: 40 },
-          { text: '😀', size: 35 }
+          { text: '😀smile face', size: 60 },
+          { text: '🥰face_with_heart', size: 50 },
+          { text: '🥳face_with_joy', size: 40 },
+          { text: '😀smile', size: 35 }
         ]
   
         const layout = cloud()

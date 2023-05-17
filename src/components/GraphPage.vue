@@ -23,13 +23,13 @@
   </div>
 
   <!-- two pie charts about sentiments-->
-  <div class="grid">
-    <div class="chart white-bg">
-      <!-- mastodon -->
-    </div>
-    <div class="chart white-bg">
-      <!-- twitter -->
-    </div>
+  <!-- mastodon -->
+  <div>
+    <PieChart />
+  </div>
+  <!-- twitter -->
+  <div>
+    <PieChart />
   </div>
 
 
@@ -49,6 +49,7 @@
 <script>
 import ScatterPlot from './ScatterPlot';
 import BarChart from './BarChart.vue';
+import PieChart from './PieChart.vue';
 import EmojiCloud from './EmojiCloud.vue';
 
 export default {
@@ -56,6 +57,7 @@ export default {
   components: {
     ScatterPlot,
     BarChart,
+    PieChart,
     EmojiCloud,
   },
 };
@@ -96,12 +98,6 @@ export default {
 
 .age {
   padding: 2rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
 }
 
 .chart {
