@@ -10,9 +10,7 @@
   </div>
 
   <!-- Age -->
-  <div>
-
-  </div>
+  <div class="age"><ScatterPlot/></div>
 
   <!-- Nationality -->
   <div>
@@ -51,8 +49,13 @@
 </template>
 
 <script>
+import ScatterPlot from './ScatterPlot';
+
 export default {
   name: "GraphPage",
+  components: {
+    ScatterPlot
+  },
 };
 </script>
 
@@ -87,6 +90,10 @@ export default {
   font-size: 14px;
   color: white;
   font-family: 'Alegreya', serif;
+}
+
+.age {
+  padding: 2rem;
 }
 
 .grid {
