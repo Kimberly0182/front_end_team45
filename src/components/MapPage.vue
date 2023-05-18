@@ -1,15 +1,16 @@
 <template>
   <div>
-    <AusMap />
+    <MapDropdown />
   </div>
 </template>
 
 <script>
-import AusMap from "./AusMap.vue";
+import MapDropdown from "./map/MapDropdown.vue";
+
 export default {
   name: "MapPage",
   components: {
-    AusMap,
+    MapDropdown,
   },
 };
 </script>

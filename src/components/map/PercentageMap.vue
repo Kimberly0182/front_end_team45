@@ -1,5 +1,5 @@
 <template>
-  <div ref="ausMap" style="width: 100%; height: 92.1vh" />
+  <div ref="percentageMap" style="width: 100%; height: 92.1vh" />
 </template>
 
 <script>
@@ -10,21 +10,21 @@ import { Loader } from "@googlemaps/js-api-loader";
 const GOOGLE_MAPS_API_KEY = "AIzaSyDlJBBR9Jpp_kfM4ztufQUNan15FHYZzaw";
 
 export default {
-  name: "AusMap",
+  name: "PercentageMap",
   setup() {
     const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY });
-    const ausMap = ref(null);
+    const percentageMap = ref(null);
     let map = ref(null);
 
     onMounted(async () => {
       await loader.load();
-      map.value = new google.maps.Map(ausMap.value, {
+      map.value = new google.maps.Map(percentageMap.value, {
         center: { lat: -28.5, lng: 135 },
         zoom: 4.6,
       });
     });
 
-    return { ausMap };
+    return { percentageMap };
   },
 };
 </script>
