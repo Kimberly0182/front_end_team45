@@ -1,76 +1,109 @@
 <template>
-    <div id="age-scatterplot"></div>
-  </template>
+  <div id="age-scatterplot"></div>
+</template>
   
-  <script>
-  import * as d3 from 'd3';
-  
-  export default {
-    name: "ScatterPlot",
-    mounted() {
-    var data = [
-      { age: 20, value: 5 },
-      { age: 25, value: 15 },
-      { age: 30, value: 20 },
-      { age: 35, value: 27 },
-      { age: 40, value: 30 },
-      { age: 45, value: 35 },
-    ];
+   .append("svg")
+        .attr("width", 500)
+        .attr("height", 500);
+<script>
+import * as d3 from 'd3';
+import { getTwitterGeoData } from '@/api/api';
 
-    var svgWidth = 400, svgHeight = 400;
+export default {
+  name: "ScatterPlot",
+  async mounted() {
+    const rawData = await getTwitterGeoData();
 
-    var svg = d3.select("#age-scatterplot")
-      .append("svg")
-      .attr("width", 500)
-      .attr("height", 500);
+    if (rawData) {
+      var allData = Object.values(rawData).map(item => {
+        return { age: item.age, value: item.percentage };
+      });
 
-    var radius = 5;
+      // remove outliers
+      var data = allData.slice(0, -5);
 
-    var xScale = d3.scaleLinear()
-      .domain([d3.min(data, d => d.age), d3.max(data, d => d.age)])
-      .range([radius, svgWidth - radius]);
+      var svgWidth = 500, svgHeight = 500;
 
-    var yScale = d3.scaleLinear()
-      .domain([d3.min(data, d => d.value), d3.max(data, d => d.value)])
-      .range([svgHeight - radius, radius]);
+      var margin = {top: 20, right: 20, bottom: 60, left: 50};
+
+      var width = svgWidth - margin.left - margin.right;
+
+      var height = svgHeight - margin.top - margin.bottom;
+
+      var svg = d3.select("#age-scatterplot")
+        .append("svg")
+        .attr("width", svgWidth)
+        .attr("height", svgHeight)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-    svg.selectAll("circle")
-      .data(data)
-      .enter()
-      .append("circle")
-      .attr("cx", d => xScale(d.age))
-      .attr("cy", d => yScale(d.value))
-      .attr("r", 5)
-      .style("fill", "#69b3a2");
+      var xScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d.age)-1, d3.max(data, d => d.age)])
+        .range([0, width]);
 
-    
-    svg.append("text")
-      .attr("x", svgWidth / 2)
-      .attr("y", svgHeight + 40)
-      .attr("text-anchor", "middle")
-      .text("Age");
+      var yScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d.value)-0.01, d3.max(data, d => d.value)])
+        .range([height, 0]);
 
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 10)
-      .attr("x", -svgHeight / 2)
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Count");
+      
+      var line = d3.line()
+        .x(d => xScale(d.age))
+        .y(d => yScale(d.value));
 
-    
-    var xAxis = d3.axisBottom(xScale);
-    var yAxis = d3.axisLeft(yScale);
+      var lineData = data.map(item => {
+        return {
+          age: item.age,
+          value: 0.4671 - 0.0051 * item.age
+        };
+      });
 
-    svg.append("g")
-        .attr("transform", `translate(0,${svgHeight - radius})`)
-        .call(xAxis);
+      svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xScale(d.age))
+        .attr("cy", d => yScale(d.value))
+        .attr("r", 5)
+        .style("fill", "#69b3a2");
 
-    
-    svg.append("g")
-        .attr("transform", `translate(${radius},0)`)
-        .call(yAxis);
+        
+      svg.append("path")
+        .datum(lineData)
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", line);
+
+
+        var xAxis = d3.axisBottom(xScale);
+        var yAxis = d3.axisLeft(yScale);
+
+        svg.append("g")
+          .attr("transform", `translate(0,${height})`)
+          .call(xAxis);
+
+
+        svg.append("g")
+          .call(yAxis);
+
+        // Add the text label for the x axis
+        svg.append("text")
+          .attr("transform", `translate(${width / 2}, ${height + margin.bottom / 2})`)
+          .style("text-anchor", "middle")
+          .text("Age");
+
+        // Add the text label for the Y axis
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", -margin.left)
+          .attr("x", -height / 2)
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .text("Percentage");
+    }
   },
-  }
-  </script>
+}
+</script>
