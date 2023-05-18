@@ -65,17 +65,18 @@ export default {
         .attr("cx", d => xScale(d.age))
         .attr("cy", d => yScale(d.value))
         .attr("r", 5)
-        .style("fill", "#69b3a2");
+        .style("fill", "#ff7200"); 
 
         
       svg.append("path")
         .datum(lineData)
         .attr("fill", "none")
-        .attr("stroke", "steelblue")
+        .attr("stroke", "#ffa600")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
         .attr("d", line);
+        
 
 
         var xAxis = d3.axisBottom(xScale);
