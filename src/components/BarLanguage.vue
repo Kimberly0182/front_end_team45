@@ -7,7 +7,7 @@ import * as d3 from 'd3';
 import { getTwitterLanguageData } from '@/api/api';
 
 export default {
-  name: "BarChart",
+  name: "BarLanguage",
   async mounted() {
     const response = await getTwitterLanguageData();
     const data = response.map(item => {

@@ -14,12 +14,12 @@
 
   <!-- Nationality -->
   <div>
-    <BarChart />
+    <BarLanguage />
   </div>
 
   <!-- Different language -->
   <div>
-    <BarChart />
+    <BarCountry />
   </div>
 
   <!-- two pie charts about sentiments-->
@@ -37,7 +37,8 @@
 
 <script>
 import ScatterPlot from './ScatterPlot';
-import BarChart from './BarChart.vue';
+import BarLanguage from './BarLanguage.vue';
+import BarCountry from './BarCountry.vue';
 import DoughnutDiagram from './DoughnutDiagram.vue';
 import EmojiCloud from './EmojiCloud.vue';
 
@@ -45,7 +46,8 @@ export default {
   name: "GraphPage",
   components: {
     ScatterPlot,
-    BarChart,
+    BarLanguage,
+    BarCountry,
     EmojiCloud,
     DoughnutDiagram,
   },
