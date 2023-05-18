@@ -89,13 +89,13 @@ export default {
         svg.append("g")
           .call(yAxis);
 
-        // Add the text label for the x axis
+        
         svg.append("text")
           .attr("transform", `translate(${width / 2}, ${height + margin.bottom / 2})`)
           .style("text-anchor", "middle")
           .text("Age");
 
-        // Add the text label for the Y axis
+        
         svg.append("text")
           .attr("transform", "rotate(-90)")
           .attr("y", -margin.left)
