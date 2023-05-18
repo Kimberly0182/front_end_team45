@@ -24,7 +24,7 @@ export default {
       await loader.load();
       map.value = new google.maps.Map(mapDiv.value, {
         center: currPos.value,
-        zoom: 7,
+        zoom: 4.6,
       });
       clickListener = map.value.addListener(
         "click",
@@ -78,12 +78,5 @@ export default {
 </script>
 
 <template>
-  <div class="d-flex text-center" style="height: 10vh">
-    <div class="m-auto">
-      <h4>Your Position</h4>
-      Latitude: {{ currPos.lat.toFixed(2) }}, Longitude:
-      {{ currPos.lng.toFixed(2) }}
-    </div>
-  </div>
-  <div ref="mapDiv" style="width: 100%; height: 80vh" />
+  <div ref="mapDiv" style="width: 100%; height: 92.1vh" />
 </template>
