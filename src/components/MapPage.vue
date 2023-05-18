@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Welcome to the Map Page</h1>
     <AusMap />
   </div>
 </template>
