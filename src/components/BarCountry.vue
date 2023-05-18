@@ -19,11 +19,11 @@ export default {
       };
     });
 
-    // sort data by correlation_coefficient in descending order
+
     data.sort((a, b) => b.correlation_coefficient - a.correlation_coefficient);
     
-    const svgWidth = 1000, svgHeight = 400;
-    const margin = { top: 20, right: 20, bottom: 100, left: 50 };
+    const svgWidth = 1000, svgHeight = 500;
+    const margin = { top: 30, right: 20, bottom: 100, left: 50};
     const width = svgWidth - margin.left - margin.right;
     const height = svgHeight - margin.top - margin.bottom;
 
@@ -65,7 +65,14 @@ export default {
       .attr("width", x.bandwidth())
       .attr("height", d => Math.abs(y(d.correlation_coefficient) - y(0)))
       .style("fill", "#ffc107"); 
-  }
-};
 
+      svg.append("text")
+      .attr("x", (svgWidth / 2))             
+      .attr("y", (margin.top / 2))
+      .attr("text-anchor", "middle")  
+      .style("font-size", "16px") 
+      .style("text-decoration", "underline")  
+      .text("Correlation Coefficient vs Ancestry");
+    }
+};
 </script>
