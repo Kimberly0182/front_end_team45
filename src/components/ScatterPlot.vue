@@ -2,9 +2,7 @@
   <div id="age-scatterplot"></div>
 </template>
   
-   .append("svg")
-        .attr("width", 500)
-        .attr("height", 500);
+
 <script>
 import * as d3 from 'd3';
 import { getTwitterGeoData } from '@/api/api';
