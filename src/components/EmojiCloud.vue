@@ -1,6 +1,6 @@
 <template>
-    <div id="word-cloud"></div>
-    <div>
+  <div class="cloud-container">
+    <div class="controls">
       <select v-model="sentiment">
         <option value="total">Total</option>
         <option value="positive">Positive</option>
@@ -13,7 +13,9 @@
       </select>
       <button @click="generateCloud">Generate</button>
     </div>
-  </template>
+    <div id="word-cloud"></div>
+  </div>
+</template>
   
 <script>
 import { ref, onMounted } from 'vue'
@@ -56,7 +58,6 @@ export default {
     const dataSource = ref('mastodon')
 
     const generateCloud = () => {
-
       let data;
       if (sentiment.value === 'total' && dataSource.value === 'twitter') {
         data = twitterEmojiData.value.map(item => ({
@@ -101,7 +102,7 @@ export default {
       }
 
       const layout = cloud()
-        .size([500, 500])
+        .size([660, 660])
         .words(data)
         .padding(5)
         .rotate(() => ~~(Math.random() * 2) * 90)
@@ -139,3 +140,38 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.cloud-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 10px;
+}
+
+.controls select, .controls button {
+  margin: 0 10px;
+}
+
+.controls button {
+  background-color: #ffa000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.controls button:hover {
+  background-color: #ffa000;
+  cursor: pointer;
+}
+</style>
