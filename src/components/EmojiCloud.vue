@@ -102,7 +102,7 @@ export default {
       }
 
       const layout = cloud()
-        .size([660, 660])
+        .size([600, 600])
         .words(data)
         .padding(5)
         .rotate(() => ~~(Math.random() * 2) * 90)
