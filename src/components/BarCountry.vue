@@ -1,5 +1,5 @@
 <template>
-    <div id="bar-chart"></div>
+    <div id="bar-country"></div>
   </template>
   
 <script>
@@ -27,7 +27,7 @@ export default {
     const width = svgWidth - margin.left - margin.right;
     const height = svgHeight - margin.top - margin.bottom;
 
-    const svg = d3.select("#bar-chart")
+    const svg = d3.select("#bar-country")
       .append("svg")
       .attr("width", svgWidth)
       .attr("height", svgHeight);
