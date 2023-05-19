@@ -14,15 +14,26 @@
   <script>
   import { ref, watch, onMounted } from 'vue'
   import * as d3 from 'd3'
+
+  import { getMastodonSentiment } from '@/api/api'
+  import { getTwitterSentiment } from '@/api/api'
   
   export default {
+    name: 'DoughnutDiagram',
     setup() {
+      const mastodonSentimentData = ref([])
+      const twitterSentimentData = ref([])
       const DoughnutDiagram = ref('mastodon')
+
+      onMounted(async () => {
+        mastodonSentimentData.value = await getMastodonSentiment()
+        twitterSentimentData.value = await getTwitterSentiment()
+      })
   
       const generateDonutChart = () => {
         const data = DoughnutDiagram.value === 'mastodon'
-          ? { A: 10, B: 20, C: 30 }
-          : { D: 15, E: 25, F: 35 }
+          ? mastodonSentimentData.value
+          : twitterSentimentData.value
   
         const total = Object.values(data).reduce((a, b) => a + b, 0)
         const yellowScale = ['#ffd59b', '#ffa474', '#f47461']
@@ -66,10 +77,8 @@
         items.append('span')
           .text(d => `${d.data[0]}: ${(d.data[1] / total * 100).toFixed(2)}%`)
       }
-  
-      onMounted(generateDonutChart)
-  
-      watch(DoughnutDiagram, generateDonutChart)
+
+      watch([mastodonSentimentData, twitterSentimentData, DoughnutDiagram], generateDonutChart, { immediate: true })
   
       return {
         DoughnutDiagram,
@@ -77,6 +86,7 @@
     },
   }
   </script>
+
   
   <style>
   .container-doughnut {
