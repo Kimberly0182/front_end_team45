@@ -22,14 +22,16 @@
   
 <style scoped>
   .sidebar {
-    width: 250px;
+    width: 160px;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     padding: 1rem;
-    background: linear-gradient(to bottom, #ffea00, #ffa000);
+    background: linear-gradient(to bottom, #ebe5bd, #ffa000);
     font-family: 'Alegreya', serif;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
   }
   
   .sidebar ul {
