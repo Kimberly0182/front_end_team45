@@ -1,6 +1,6 @@
 <template>
     <div id="bar-language"></div>
-  </template>
+</template>
   
 <script>
 import * as d3 from 'd3';
@@ -10,14 +10,18 @@ export default {
   name: "BarLanguage",
   async mounted() {
     const response = await getTwitterLanguageData();
+
     const data = response.map(item => {
       const splitLanguage = item.language.split('_');
+
       let language;
+
       if (splitLanguage[2] === 'indo') {
         language = splitLanguage.slice(2, 6).join(' ');
       } else {
         language = splitLanguage[2];
       }
+
       return {
         ...item,
         language,
@@ -27,8 +31,11 @@ export default {
     data.sort((a, b) => b.correlation_coefficient - a.correlation_coefficient);
     
     const svgWidth = 1000, svgHeight = 400;
+
     const margin = { top: 30, right: 20, bottom: 100, left: 50 };
+
     const width = svgWidth - margin.left - margin.right;
+
     const height = svgHeight - margin.top - margin.bottom;
 
     const svg = d3.select("#bar-language")
@@ -57,9 +64,6 @@ export default {
       .attr("dy", ".15em")
       .attr("transform", "rotate(-65)");
 
-    g.append("g")
-      .call(d3.axisLeft(y));
-
     g.selectAll(".bar")
       .data(data)
       .enter().append("rect")
@@ -69,14 +73,17 @@ export default {
       .attr("width", x.bandwidth())
       .attr("height", d => Math.abs(y(d.correlation_coefficient) - y(0)))
       .style("fill", "#ffc107"); 
-    
+
+    g.append("g")
+      .call(d3.axisLeft(y));
+
     svg.append("text")
       .attr("x", (svgWidth / 2))             
       .attr("y", (margin.top / 2))
       .attr("text-anchor", "middle")  
-      .style("font-size", "16px") 
       .style("text-decoration", "underline")  
-      .text("Correlation Coefficient vs Language");
+      .text("Correlation Coefficient vs Language")
+      .style("font-size", "16px");
   }
 };
 </script>

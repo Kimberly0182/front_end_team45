@@ -1,15 +1,9 @@
 <template>
     <div class="sidebar">
       <ul>
-        <li>
-          <router-link to="/" exact>Homepage</router-link>
-        </li>
-        <li>
-          <router-link to="/map">Map</router-link>
-        </li>
-        <li>
-          <router-link to="/graph">Graph</router-link>
-        </li>
+        <li><router-link to="/" exact>Homepage</router-link></li>
+        <li><router-link to="/map">Map</router-link></li>
+        <li><router-link to="/graph">Graph</router-link></li>
       </ul>
     </div>
   </template>
@@ -22,26 +16,26 @@
   
 <style scoped>
   .sidebar {
-    width: 160px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    padding: 1rem;
     background: linear-gradient(to bottom, #ebe5bd, #ffa000);
     font-family: 'Alegreya', serif;
-    border-top-right-radius: 30px;
+    position: fixed;
     border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 1rem;
+    width: 160px;
+    height: 100%;
+    left: 0;
+    top: 0;
   }
   
   .sidebar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    display: flex;
+    height: 100%;
+    padding: 0;
+    margin: 0;
   }
   
   .sidebar li {
@@ -50,13 +44,12 @@
   
   .sidebar a {
     text-decoration: none;
+    font-weight: bold;
     color: #fff;
     font-size: 1.2rem;
-    font-weight: bold;
   }
   
   .sidebar a:hover {
     text-decoration: underline;
   }
 </style>
-  

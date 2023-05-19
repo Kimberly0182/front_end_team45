@@ -10,6 +10,7 @@
       </div>
 
       <div><EmojiCloud /></div>
+
     </div>
 
     <div class="row">
@@ -58,11 +59,11 @@ export default {
 
 <style scoped>
 .content {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem;
+  display: flex;
   margin-left: 160px;
+  padding: 3rem;
 }
 
 .image-emoji {
@@ -72,47 +73,68 @@ export default {
 }
 
 .bordered-image {
-  max-width: 1000px;
   border: 1px solid #ccc;
   border-radius: 50%;
+  max-width: 1000px;
 }
 
 .row {
-  display: flex;
   justify-content: space-between;
+  display: flex;
   margin: 2rem 0;
   width: 100%;
 }
 
 .bordered-div {
-  flex: 1;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 2rem;
-  margin-top: -100px;
-  margin-left: 30px;
-  margin-right: 30px;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  border: 1px solid #ccc;
+  flex-direction: column;
+  display: flex;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: -100px;
+  margin-right: 30px;
+  margin-left: 30px;
+  min-height: 200px;
+  padding: 2rem;
+  flex: 1;
 }
 
-.text-intro h1, .aim h1, .task h1 {
+.text-intro h1{
   font-family: 'Alegreya', serif;
-  font-size: 22px;
   text-align: center;
+  font-size: 22px;
 }
 
-.aim h2,  .task h2 {
+.aim h1 {
   font-family: 'Alegreya', serif;
-  font-size: 18px;
-  text-align: justify;
+  text-align: center;
+  font-size: 22px;
 }
 
-.aim h1
-, .task h1 {
+.task h1 {
+  font-family: 'Alegreya', serif;
+  text-align: center;
+  font-size: 22px;
+}
+
+.aim h2 {
+  font-family: 'Alegreya', serif;
+  text-align: justify;
+  font-size: 18px;
+}
+
+.task h2 {
+  font-family: 'Alegreya', serif;
+  text-align: justify;
+  font-size: 18px;
+}
+
+.aim h1 {
+  font-size: 30px;
+}
+
+.task h1 {
   font-size: 30px;
 }
 </style>

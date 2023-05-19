@@ -22,14 +22,9 @@ import { ref, onMounted } from 'vue'
 import * as d3 from 'd3'
 import cloud from 'd3-cloud'
 
-import { getTwitterEmoji } from '@/api/api'
-import { getTwitterPositive } from '@/api/api'
-import { getTwitterNegative } from '@/api/api'
-import { getTwitterNeutral } from '@/api/api'
-import { getMastodonEmoji } from '@/api/api'
-import { getMastodonPositive } from '@/api/api'
-import { getMastodonNegative } from '@/api/api'
-import { getMastodonNeutral } from '@/api/api'
+import { getTwitterEmoji, getTwitterPositive, getTwitterNegative, 
+         getTwitterNeutral, getMastodonEmoji, getMastodonPositive,
+         getMastodonNegative, getMastodonNeutral} from '@/api/api'
 
 export default {
   name: "EmojiCloud",
@@ -143,22 +138,26 @@ export default {
 
 <style scoped>
 .cloud-container {
-  display: flex;
   flex-direction: column;
   align-items: center;
+  display: flex;
 }
 
 .controls {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
   background-color: #f8f9fa;
   border: 1px solid #ced4da;
+  justify-content: center;
+  display: flex;
   border-radius: 0.25rem;
+  margin-bottom: 20px;
   padding: 10px;
 }
 
-.controls select, .controls button {
+.controls select {
+  margin: 0 10px;
+}
+
+.controls button {
   margin: 0 10px;
 }
 
@@ -166,8 +165,8 @@ export default {
   background-color: #ffa000;
   color: white;
   border: none;
-  padding: 5px 10px;
   border-radius: 5px;
+  padding: 5px 10px;
 }
 
 .controls button:hover {

@@ -1,28 +1,30 @@
 <template>
     <div class="container-doughnut">
-      <div class="select-container">
+      <div>
         <select v-model="DoughnutDiagram">
           <option value="mastodon">Mastodon</option>
           <option value="twitter">Twitter</option>
         </select>
-      </div>
-      <svg id="donut" width="480" height="480"></svg>
-      <div id="legend"></div>
     </div>
-  </template>
+
+    <svg id="donut" width="480" height="480"></svg>
+      
+    <div id="legend"></div>
+  </div>
+</template>
   
-  <script>
+<script>
   import { ref, watch, onMounted } from 'vue'
   import * as d3 from 'd3'
 
-  import { getMastodonSentiment } from '@/api/api'
-  import { getTwitterSentiment } from '@/api/api'
+  import { getMastodonSentiment, getTwitterSentiment } from '@/api/api'
   
   export default {
     name: 'DoughnutDiagram',
     setup() {
       const mastodonSentimentData = ref([])
       const twitterSentimentData = ref([])
+
       const DoughnutDiagram = ref('mastodon')
 
       onMounted(async () => {
@@ -36,9 +38,13 @@
           : twitterSentimentData.value
   
         const total = Object.values(data).reduce((a, b) => a + b, 0)
+
         const yellowScale = ['#ffd59b', '#ffa474', '#f47461']
+
         const color = d3.scaleOrdinal(yellowScale)
+
         const pie = d3.pie().value(d => d[1])
+
         const arc = d3.arc().innerRadius(130).outerRadius(200)
   
         d3.select('#donut').selectAll('*').remove()
@@ -67,6 +73,9 @@
           .enter()
           .append('li')
           .attr('class', 'list-group-item d-flex justify-content-between align-items-center')
+        
+        items.append('span')
+          .text(d => `${d.data[0]}: ${(d.data[1] / total * 100).toFixed(2)}%`)  
   
         items.append('span')
           .style('background-color', d => color(d.data[0]))
@@ -74,8 +83,6 @@
           .style('width', '20px')
           .style('height', '20px')
   
-        items.append('span')
-          .text(d => `${d.data[0]}: ${(d.data[1] / total * 100).toFixed(2)}%`)
       }
 
       watch([mastodonSentimentData, twitterSentimentData, DoughnutDiagram], generateDonutChart, { immediate: true })
@@ -85,26 +92,21 @@
       }
     },
   }
-  </script>
+</script>
 
   
-  <style>
+<style>
   .container-doughnut {
-    display: flex;
     flex-direction: column;
     align-items: center;
+    display: flex;
   }
 
-  .select-container {
-    margin-bottom: 0px;
+  #legend li {
+    margin-bottom: 15px;
   }
 
   #legend ul {
     list-style: none;
   }
-
-  #legend li {
-    margin-bottom: 20px;
-  }
-  </style>
-  
+</style>

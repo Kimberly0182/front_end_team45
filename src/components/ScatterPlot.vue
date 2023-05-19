@@ -1,7 +1,6 @@
 <template>
   <div id="age-scatterplot"></div>
 </template>
-  
 
 <script>
 import * as d3 from 'd3';
@@ -17,8 +16,7 @@ export default {
         return { age: item.age, value: item.percentage };
       });
 
-      // remove outliers
-      var data = allData.slice(0, -5);
+      var data = allData.slice(0, -5); // remove outliers
 
       var svgWidth = 520, svgHeight = 520;
 
@@ -34,7 +32,6 @@ export default {
         .attr("height", svgHeight)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
 
       var xScale = d3.scaleLinear()
         .domain([d3.min(data, d => d.age)-1, d3.max(data, d => d.age)])
@@ -74,34 +71,17 @@ export default {
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
         .attr("d", line);
-        
-
 
         var xAxis = d3.axisBottom(xScale);
+
         var yAxis = d3.axisLeft(yScale);
 
         svg.append("g")
           .attr("transform", `translate(0,${height})`)
           .call(xAxis);
 
-
         svg.append("g")
           .call(yAxis);
-
-        
-        svg.append("text")
-          .attr("transform", `translate(${width / 2}, ${height + margin.bottom / 2})`)
-          .style("text-anchor", "middle")
-          .text("Age");
-
-        
-        svg.append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", -margin.left)
-          .attr("x", -height / 2)
-          .attr("dy", "1em")
-          .style("text-anchor", "middle")
-          .text("Percentage");
 
         svg.append("text")
           .attr("transform", `translate(${width / 2}, ${-margin.top / 2})`)
@@ -110,6 +90,19 @@ export default {
           .style("font-weight", "bold")
           .style("text-decoration", "underline")
           .text("Average age vs Percentage of Tweets containing Emojis");
+        
+        svg.append("text")
+          .attr("transform", `translate(${width / 2}, ${height + margin.bottom / 2})`)
+          .style("text-anchor", "middle")
+          .text("Age");
+        
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", -margin.left)
+          .attr("x", -height / 2)
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .text("Percentage");
     }
   },
 }

@@ -10,6 +10,7 @@ export default {
   name: "BarChart",
   async mounted() {
     const response = await getTwitterAncestryData();
+
     const data = response.map(item => {
       const splitAncestry = item.ancestry.split('_');
       const ancestry = splitAncestry.slice(0, -2).join(' ');
@@ -19,12 +20,14 @@ export default {
       };
     });
 
-
     data.sort((a, b) => b.correlation_coefficient - a.correlation_coefficient);
     
     const svgWidth = 900, svgHeight = 500;
+
     const margin = { top: 30, right: 20, bottom: 100, left: 50};
+
     const width = svgWidth - margin.left - margin.right;
+
     const height = svgHeight - margin.top - margin.bottom;
 
     const svg = d3.select("#bar-country")
@@ -32,8 +35,7 @@ export default {
       .attr("width", svgWidth)
       .attr("height", svgHeight);
 
-    const g = svg.append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    const g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     const x = d3.scaleBand()
       .rangeRound([0, width])
@@ -45,34 +47,34 @@ export default {
       .domain([d3.min(data, d => d.correlation_coefficient), d3.max(data, d => d.correlation_coefficient)]);
 
     g.append("g")
+      .call(d3.axisLeft(y));
+      
+    g.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
       .selectAll("text")  
       .style("text-anchor", "end")
+      .attr("transform", "rotate(-65)")
       .attr("dx", "-.1em")
-      .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");
-
-    g.append("g")
-      .call(d3.axisLeft(y));
-
+      .attr("dy", ".15em");
+      
     g.selectAll(".bar")
       .data(data)
       .enter().append("rect")
       .attr("class", d => d.correlation_coefficient < 0 ? "bar negative" : "bar positive")
       .attr("x", d => x(d.ancestry))
       .attr("y", d => y(Math.max(0, d.correlation_coefficient)))
-      .attr("width", x.bandwidth())
       .attr("height", d => Math.abs(y(d.correlation_coefficient) - y(0)))
-      .style("fill", "#ffc107"); 
+      .attr("width", x.bandwidth())
+      .style("fill", "#ffc200"); 
 
-      svg.append("text")
+    svg.append("text")
       .attr("x", (svgWidth / 2))             
       .attr("y", (margin.top / 2))
       .attr("text-anchor", "middle")  
-      .style("font-size", "16px") 
+      .style("font-size", "14px") 
       .style("text-decoration", "underline")  
       .text("Correlation Coefficient vs Ancestry");
-    }
+  }
 };
 </script>
