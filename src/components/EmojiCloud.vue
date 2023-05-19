@@ -60,42 +60,42 @@ export default {
       let data;
       if (sentiment.value === 'total' && dataSource.value === 'twitter') {
         data = twitterEmojiData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: Math.sqrt(item.count) / 9,
         }))
       } else if (sentiment.value === 'positive' && dataSource.value === 'twitter') {
         data = twitterPositiveData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: Math.sqrt(item.count) / 5,
         }))
       } else if (sentiment.value === 'negative' && dataSource.value === 'twitter') {
         data = twitterNegativeData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: Math.sqrt(item.count) / 4.5,
         }))
       } else if (sentiment.value === 'neutral' && dataSource.value === 'twitter') {
         data = twitterNeutralData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: Math.sqrt(item.count) / 6,
         }))
       } else if (sentiment.value === 'total' && dataSource.value === 'mastodon') {
         data = mastodonEmojiData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: item.percentage * 250,
         }))
       } else if (sentiment.value === 'positive' && dataSource.value === 'mastodon') {
         data = mastodonPositiveData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: item.percentage * 250 ,
         }))
       } else if (sentiment.value === 'negative' && dataSource.value === 'mastodon') {
         data = mastodonNegativeData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: item.percentage * 250 ,
         }))
       } else if (sentiment.value === 'neutral' && dataSource.value === 'mastodon') {
         data = mastodonNeutralData.value.map(item => ({
-          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          text: item.emoji + item.emoji_name.replace(/:/, '').replace(/:/, ''),
           size: item.percentage * 250,
         }))
       }
