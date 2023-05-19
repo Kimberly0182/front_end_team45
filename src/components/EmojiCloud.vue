@@ -15,62 +15,89 @@
     </div>
   </template>
   
-  <script>
-import { ref } from 'vue'
+<script>
+import { ref, onMounted } from 'vue'
 import * as d3 from 'd3'
 import cloud from 'd3-cloud'
+
+import { getTwitterEmoji } from '@/api/api'
+import { getTwitterPositive } from '@/api/api'
+import { getTwitterNegative } from '@/api/api'
+import { getTwitterNeutral } from '@/api/api'
+import { getMastodonEmoji } from '@/api/api'
+import { getMastodonPositive } from '@/api/api'
+import { getMastodonNegative } from '@/api/api'
+import { getMastodonNeutral } from '@/api/api'
 
 export default {
   name: "EmojiCloud",
   setup() {
+    const twitterEmojiData = ref([])
+    const twitterPositiveData = ref([])
+    const twitterNegativeData = ref([])
+    const twitterNeutralData = ref([])
+    const mastodonEmojiData = ref([])
+    const mastodonPositiveData = ref([])
+    const mastodonNegativeData = ref([])
+    const mastodonNeutralData = ref([])
+
+    onMounted(async () => {
+      twitterEmojiData.value = await getTwitterEmoji()
+      twitterPositiveData.value = await getTwitterPositive()
+      twitterNegativeData.value = await getTwitterNegative()
+      twitterNeutralData.value = await getTwitterNeutral()
+      mastodonEmojiData.value = await getMastodonEmoji()
+      mastodonPositiveData.value = await getMastodonPositive()
+      mastodonNegativeData.value = await getMastodonNegative()
+      mastodonNeutralData.value = await getMastodonNeutral()
+    })
+
     const sentiment = ref('total')
     const dataSource = ref('mastodon')
 
     const generateCloud = () => {
-      // Assume we have different data for different sentiment and dataSource
+
       let data;
       if (sentiment.value === 'total' && dataSource.value === 'twitter') {
-        data = [
-          { text: '😀smile face', size: 60 },
-          { text: '🥰face_with_heart', size: 50 },
-          { text: '🥳face_with_joy', size: 40 },
-          { text: '😀smile', size: 35 }
-        ]
+        data = twitterEmojiData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count) / 9,
+        }))
       } else if (sentiment.value === 'positive' && dataSource.value === 'twitter') {
-        data = [
-          { text: '🥰face_with_heart', size: 50 },
-          { text: '🥳face_with_joy', size: 40 },
-        ]
+        data = twitterPositiveData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count) / 5,
+        }))
       } else if (sentiment.value === 'negative' && dataSource.value === 'twitter') {
-        data = [
-          { text: '😀smile', size: 35 }
-        ]
+        data = twitterNegativeData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count) / 4.5,
+        }))
       } else if (sentiment.value === 'neutral' && dataSource.value === 'twitter') {
-        data = [
-          { text: '😀smile face', size: 60 },
-        ]
+        data = twitterNeutralData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count) / 6,
+        }))
       } else if (sentiment.value === 'total' && dataSource.value === 'mastodon') {
-        data = [
-          { text: '😀smile face', size: 60 },
-          { text: '🥰face_with_heart', size: 50 },
-          { text: '🥳face_with_joy', size: 40 },
-          { text: '😀smile', size: 35 }
-        ]
+        data = mastodonEmojiData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count)*1.2,
+        }))
       } else if (sentiment.value === 'positive' && dataSource.value === 'mastodon') {
-        data = [
-          { text: '🥰face_with_heart', size: 50 },
-          { text: '🥳face_with_joy', size: 40 },
-          { text: '😀smile', size: 35 }
-        ]
+        data = mastodonPositiveData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count) ,
+        }))
       } else if (sentiment.value === 'negative' && dataSource.value === 'mastodon') {
-        data = [
-          { text: '😀smile face', size: 60 },
-        ]
+        data = mastodonNegativeData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count),
+        }))
       } else if (sentiment.value === 'neutral' && dataSource.value === 'mastodon') {
-        data = [
-          { text: '😀smile face', size: 60 },
-          { text: '🥰face_with_heart', size: 50 },
-        ]
+        data = mastodonNeutralData.value.map(item => ({
+          text: item.emoji + item.emoji_name.replace(/:/, ''),
+          size: Math.sqrt(item.count),
+        }))
       }
 
       const layout = cloud()
