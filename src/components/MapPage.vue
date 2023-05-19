@@ -19,6 +19,6 @@ export default {
 .map-container {
   text-align: center;
   padding-bottom: 10rem;
-  margin-left: 300px;
+  margin-left: 200px;
 }
 </style>

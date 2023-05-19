@@ -62,7 +62,7 @@ export default {
   padding: 2rem;
   background-color: #F8F9FA;
   font-family: 'Alegreya', serif;
-  margin-left: 250px;
+  margin-left: 160px;
 }
 
 .chart-row {
@@ -88,7 +88,7 @@ export default {
 }
 
 .chart-content-2 {
-  height: 600px; 
+  height: 610px; 
   display: flex;
   justify-content: center;
   align-items: center;

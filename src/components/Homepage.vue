@@ -18,7 +18,7 @@ export default{
 .background {
   text-align: center;
   padding-bottom: 10rem;
-  margin-left: 250px;
+  margin-left: 160px;
 }
 
 .bordered-image {
