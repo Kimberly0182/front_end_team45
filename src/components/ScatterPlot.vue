@@ -22,9 +22,9 @@ export default {
       // remove outliers
       var data = allData.slice(0, -5);
 
-      var svgWidth = 500, svgHeight = 500;
+      var svgWidth = 520, svgHeight = 520;
 
-      var margin = {top: 20, right: 20, bottom: 60, left: 50};
+      var margin = {top: 30, right: 20, bottom: 60, left: 50};
 
       var width = svgWidth - margin.left - margin.right;
 
@@ -104,6 +104,14 @@ export default {
           .attr("dy", "1em")
           .style("text-anchor", "middle")
           .text("Percentage");
+
+        svg.append("text")
+          .attr("transform", `translate(${width / 2}, ${-margin.top / 2})`)
+          .style("text-anchor", "middle")
+          .style("font-size", "20px")
+          .style("font-weight", "bold")
+          .style("text-decoration", "underline")
+          .text("Average age vs Percentage of Tweets containing Emojis");
     }
   },
 }
