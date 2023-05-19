@@ -6,7 +6,7 @@
           <option value="twitter">Twitter</option>
         </select>
       </div>
-      <svg id="donut" width="500" height="500"></svg>
+      <svg id="donut" width="480" height="480"></svg>
       <div id="legend"></div>
     </div>
   </template>
@@ -39,7 +39,7 @@
         const yellowScale = ['#ffd59b', '#ffa474', '#f47461']
         const color = d3.scaleOrdinal(yellowScale)
         const pie = d3.pie().value(d => d[1])
-        const arc = d3.arc().innerRadius(100).outerRadius(200)
+        const arc = d3.arc().innerRadius(130).outerRadius(200)
   
         d3.select('#donut').selectAll('*').remove()
   
@@ -96,7 +96,7 @@
   }
 
   .select-container {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
   #legend ul {

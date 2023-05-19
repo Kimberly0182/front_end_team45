@@ -1,17 +1,9 @@
 <template>
   <div class="dashboard-container">
-    <div class="header">
-      <h1>Welcome to the Graph Page</h1>
-      <div class="section">
-        <h2 class="title">Data Analysis</h2>
-        <h3 class="subtitle">Small Subtitle</h3>
-      </div>
-    </div>
-
     <div class="chart-row">
       <div class="chart-card">
         <!-- Age -->
-        <div class="chart-content">
+        <div class="chart-content-2">
           <ScatterPlot/>
         </div>
       </div>
@@ -70,16 +62,7 @@ export default {
   padding: 2rem;
   background-color: #F8F9FA;
   font-family: 'Alegreya', serif;
-}
-
-.header {
-  text-align: center;
-  color: #343a40;
-  margin-bottom: 3rem;
-}
-
-.header h1, .header h2, .header h3 {
-  margin-bottom: 0.5rem;
+  margin-left: 250px;
 }
 
 .chart-row {
@@ -98,14 +81,14 @@ export default {
 }
 
 .chart-content {
-  height: 500px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .chart-content-2 {
-  height: 700px; 
+  height: 600px; 
   display: flex;
   justify-content: center;
   align-items: center;

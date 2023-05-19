@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="map-container">
     <MapDropdown />
   </div>
 </template>
@@ -14,3 +14,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.map-container {
+  text-align: center;
+  padding-bottom: 10rem;
+  margin-left: 300px;
+}
+</style>
