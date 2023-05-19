@@ -81,22 +81,22 @@ export default {
       } else if (sentiment.value === 'total' && dataSource.value === 'mastodon') {
         data = mastodonEmojiData.value.map(item => ({
           text: item.emoji + item.emoji_name.replace(/:/, ''),
-          size: Math.sqrt(item.count)*1.2,
+          size: item.percentage * 250,
         }))
       } else if (sentiment.value === 'positive' && dataSource.value === 'mastodon') {
         data = mastodonPositiveData.value.map(item => ({
           text: item.emoji + item.emoji_name.replace(/:/, ''),
-          size: Math.sqrt(item.count) ,
+          size: item.percentage * 250 ,
         }))
       } else if (sentiment.value === 'negative' && dataSource.value === 'mastodon') {
         data = mastodonNegativeData.value.map(item => ({
           text: item.emoji + item.emoji_name.replace(/:/, ''),
-          size: Math.sqrt(item.count),
+          size: item.percentage * 250 ,
         }))
       } else if (sentiment.value === 'neutral' && dataSource.value === 'mastodon') {
         data = mastodonNeutralData.value.map(item => ({
           text: item.emoji + item.emoji_name.replace(/:/, ''),
-          size: Math.sqrt(item.count),
+          size: item.percentage * 250,
         }))
       }
 
