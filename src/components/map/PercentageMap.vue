@@ -21,6 +21,7 @@ export default {
       map.value = new google.maps.Map(percentageMap.value, {
         center: { lat: -28.5, lng: 135 },
         zoom: 4.6,
+        disableDefaultUI: true,
       });
     });
 
