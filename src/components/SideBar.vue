@@ -1,9 +1,14 @@
 <template>
     <div class="sidebar">
       <ul>
-        <li><router-link to="/" exact>Homepage</router-link></li>
-        <li><router-link to="/map">Map</router-link></li>
-        <li><router-link to="/graph">Graph</router-link></li>
+        <li class="page"><router-link to="/" exact>Homepage</router-link></li>
+        <li class="page"><router-link to="/map">Map</router-link></li>
+        <li class="page"><router-link to="/graph">Graph</router-link></li>
+        <li class="graph"><router-link to="/age-vs-emoji">Age vs Emoji</router-link></li>
+        <li class="graph"><router-link to="/correlation-coefficient-vs-language">Correlation coef. vs Language</router-link></li>
+        <li class="graph"><router-link to="/correlation-coefficient-vs-ancestry">Correlation coef. vs Ancestry</router-link></li>
+        <li class="graph"><router-link to="/sentiment-distribution">Sentiment Distribution</router-link></li>
+        <li class="graph"><router-link to="/top-10-emoji">Top 10 Emoji</router-link></li>
       </ul>
     </div>
   </template>
@@ -38,18 +43,24 @@
     margin: 0;
   }
   
-  .sidebar li {
-    margin: 1rem 0;
-  }
-  
+
   .sidebar a {
     text-decoration: none;
     font-weight: bold;
     color: #fff;
+  }
+
+  .page {
     font-size: 1.2rem;
+    margin: 1rem 0;
   }
   
   .sidebar a:hover {
     text-decoration: underline;
+  }
+
+  .graph {
+    font-size: 10px !important;
+    margin-top: 6px;
   }
 </style>
