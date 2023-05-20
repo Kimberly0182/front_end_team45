@@ -1,11 +1,15 @@
 <template>
   <div class="color-bar-wrapper">
     <div class="data-bar">
+      <div class="data-bar-item">
+        <p class="data-bar-text">{{ dataValues[0] }}</p>
+      </div>
       <div
-        v-for="(data, index) in dataValues"
+        v-for="(data, index) in dataValues.slice(1)"
         :key="index"
         class="data-bar-item"
       >
+        <div class="placeholder"></div>
         <p class="data-bar-text">{{ data }}</p>
       </div>
     </div>
@@ -17,6 +21,7 @@
         ></div>
       </div>
     </div>
+
     <p class="color-bar-text">Age Distribution</p>
   </div>
 </template>
@@ -60,17 +65,19 @@ export default {
 .data-bar {
   display: flex;
   align-items: center;
+  margin-bottom: 2px;
 }
 
 .data-bar-item {
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
 }
 
-.data-bar-text {
-  margin: 0;
+.placeholder {
+  width: 19px;
 }
 
 .color-bar-text {
-  margin-top: 0px;
+  margin-top: 2px;
 }
 </style>

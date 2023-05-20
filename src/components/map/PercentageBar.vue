@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       colors: ["#FFFDE3", "#FFF3BC", "#FFCC2D", "#FFAC43", "#FF761D"],
-      dataValues: ["0.17", "0.20", "0.23", "0.25", "0.27"],
+      dataValues: [0.17, 0.2, 0.23, 0.25, 0.27],
     };
   },
 };
@@ -57,7 +57,7 @@ export default {
 }
 
 .data-bar-item {
-  margin-right: 60px;
+  margin-right: 65px;
 }
 
 .data-bar-text {
