@@ -30,33 +30,44 @@ export default {
       map.data.setStyle(function (feature) {
         const properties = feature.getProperty("GCC_CODE21");
 
-        let fillColor = "grey";
+        let fillColor = "white";
         let strokeColor = "black";
+        let fillOpacity = 0.8;
 
         if (properties === "1GSYD") {
-          fillColor = "#FF3300";
+          fillColor = "#FF4500";
+          fillOpacity = 1;
         } else if (properties === "2GMEL") {
-          fillColor = "#3352FF";
+          fillColor = "#FF6600";
+          fillOpacity = 1;
         } else if (properties === "3GBRI") {
-          fillColor = "#3352FF";
+          fillColor = "#FF8800";
+          fillOpacity = 1;
         } else if (properties === "4GADE") {
-          fillColor = "#3352FF";
+          fillColor = "#FFAA00";
+          fillOpacity = 1;
         } else if (properties === "5GPER") {
-          fillColor = "#3352FF";
+          fillColor = "#FFBB33";
+          fillOpacity = 1;
         } else if (properties === "6GHOB") {
-          fillColor = "#3352FF";
+          fillColor = "#FFCC66";
+          fillOpacity = 1;
         } else if (properties === "7GDAR") {
-          fillColor = "#3352FF";
+          fillColor = "#FFDD99";
+          fillOpacity = 1;
         } else if (properties === "8ACTE") {
-          fillColor = "#3352FF";
+          fillColor = "#FFEECC";
+          fillOpacity = 1;
         } else if (properties === "9OTER") {
-          fillColor = "#3352FF";
+          fillColor = "#FFEECC";
+          fillOpacity = 1;
         }
 
         return {
           fillColor: fillColor,
           strokeColor: strokeColor,
           strokeWeight: 1,
+          fillOpacity: fillOpacity,
         };
       });
     });
