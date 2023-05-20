@@ -4,7 +4,7 @@
       <div class="color-bar-number">{{ percentages[index] }}</div>
       <div :style="{ backgroundColor: color }" class="color-bar-color"></div>
     </div>
-    <div class="color-bar-label">% of tweets contain emojis</div>
+    <div class="color-bar-label">% of tweets contain emoji</div>
   </div>
 </template>
 
@@ -13,15 +13,8 @@ export default {
   name: "PercentageBar",
   data() {
     return {
-      colors: [
-        "#FFFACD",
-        "#FFD700",
-        "#FF8C00",
-        "#FF6347",
-        "#DC143C",
-        "#8B0000",
-      ],
-      percentages: [0.17, 0.2, 0.21, 0.23, 0.25, 0.27, 0.29],
+      colors: ["#FFFDE3", "#FFF3BC", "#FFCC2D", "#FFAC43", "#FF761D"],
+      percentages: [0.17, 0.2, 0.23, 0.25, 0.27],
     };
   },
 };

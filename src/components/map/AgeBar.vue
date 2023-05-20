@@ -14,12 +14,12 @@ export default {
   data() {
     return {
       colors: [
-        "#FFFACD",
-        "#FFD700",
-        "#FF8C00",
-        "#FF6347",
-        "#DC143C",
-        "#8B0000",
+        "#FFFDE3",
+        "#FFF3BC",
+        "#FFCC2D",
+        "#FFAC43",
+        "#FF761D",
+        "#FF4711",
       ],
       ages: [30, 33, 35, 38, 40, 43, 45],
     };
