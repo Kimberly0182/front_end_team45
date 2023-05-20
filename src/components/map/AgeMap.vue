@@ -8,6 +8,7 @@
 /* eslint-disable no-undef */
 import { onMounted } from "vue";
 import { Loader } from "@googlemaps/js-api-loader";
+import { getTwitterGeoData } from "@/api/api";
 
 const loader = new Loader({
   apiKey: process.env.VUE_APP_GOOGLE_MAPS_API_KEY,
@@ -28,53 +29,45 @@ export default {
       map.data.loadGeoJson("map.json");
 
       // Load data
+      const rawData = await getTwitterGeoData();
+      if (rawData) {
+        var allData = Object.entries(rawData).map(([key, item]) => {
+          return { gcc: key, age: item.age };
+        });
+        console.log(allData);
 
-      map.data.setStyle(function (feature) {
-        const properties = feature.getProperty("GCC_CODE21");
+        map.data.setStyle(function (feature) {
+          const properties = feature.getProperty("GCC_CODE21");
+          let fillColor = "white";
 
-        let fillColor = "white";
+          allData.forEach((data) => {
+            if (properties === data.gcc) {
+              const value = data.age;
 
-        if (properties === "1GSYD") {
-          fillColor = "#8B0000";
-        } else if (properties === "1RNSW") {
-          fillColor = "#DC143C";
-        } else if (properties === "2GMEL") {
-          fillColor = "#FF6347";
-        } else if (properties === "2RVIC") {
-          fillColor = "#FF8C00";
-        } else if (properties === "3GBRI") {
-          fillColor = "#FFD700";
-        } else if (properties === "3RQLD") {
-          fillColor = "#FFFACD";
-        } else if (properties === "4GADE") {
-          fillColor = "#FF6347";
-        } else if (properties === "4RSAU") {
-          fillColor = "#FF7F50";
-        } else if (properties === "5GPER") {
-          fillColor = "#FF8C00";
-        } else if (properties === "5RWAU") {
-          fillColor = "#FFA500";
-        } else if (properties === "6GHOB") {
-          fillColor = "#FFD700";
-        } else if (properties === "6RTAS") {
-          fillColor = "#FFEC8B";
-        } else if (properties === "7GDAR") {
-          fillColor = "#FFFF00";
-        } else if (properties === "7RNTE") {
-          fillColor = "#FFFACD";
-        } else if (properties === "8ACTE") {
-          fillColor = "#FAFAD2";
-        } else if (properties === "9OTER") {
-          fillColor = "#F0FFF0";
-        }
+              if (value >= 43) {
+                fillColor = "#8B0000";
+              } else if (value >= 40) {
+                fillColor = "#DC143C";
+              } else if (value >= 38) {
+                fillColor = "#FF6347";
+              } else if (value >= 35) {
+                fillColor = "#FF8C00";
+              } else if (value >= 33) {
+                fillColor = "#FFD700";
+              } else if (value >= 30) {
+                fillColor = "#FFFACD";
+              }
+            }
+          });
 
-        return {
-          fillColor: fillColor,
-          strokeColor: "black",
-          strokeWeight: 1.6,
-          fillOpacity: 0.85,
-        };
-      });
+          return {
+            fillColor: fillColor,
+            strokeColor: "black",
+            strokeWeight: 1.6,
+            fillOpacity: 0.85,
+          };
+        });
+      }
     });
   },
 };
