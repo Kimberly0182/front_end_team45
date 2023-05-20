@@ -1,4 +1,5 @@
 <template>
+  <PercentageBar />
   <div>
     <div id="percentageMap" style="width: 100%; height: 92.1vh"></div>
   </div>
@@ -8,6 +9,7 @@
 /* eslint-disable no-undef */
 import { onMounted } from "vue";
 import { Loader } from "@googlemaps/js-api-loader";
+import PercentageBar from "./PercentageBar.vue";
 
 const loader = new Loader({
   apiKey: process.env.VUE_APP_GOOGLE_MAPS_API_KEY,
@@ -16,6 +18,9 @@ const loader = new Loader({
 
 export default {
   name: "PercentageMap",
+  components: {
+    PercentageBar,
+  },
   setup() {
     onMounted(async () => {
       // Load map
