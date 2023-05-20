@@ -33,64 +33,46 @@ export default {
         const properties = feature.getProperty("GCC_CODE21");
 
         let fillColor = "white";
-        let strokeColor = "black";
-        let fillOpacity = 0.8;
 
         if (properties === "1GSYD") {
           fillColor = "#8B0000 ";
-          fillOpacity = 0.8;
         } else if (properties === "1RNSW") {
           fillColor = "#A52A2A ";
-          fillOpacity = 0.8;
         } else if (properties === "2GMEL") {
           fillColor = "#B22222";
-          fillOpacity = 0.8;
         } else if (properties === "2RVIC") {
           fillColor = "#DC143C";
-          fillOpacity = 0.8;
         } else if (properties === "3GBRI") {
           fillColor = "#FF0000";
-          fillOpacity = 0.8;
         } else if (properties === "3RQLD") {
           fillColor = "#FF4500 ";
-          fillOpacity = 0.8;
         } else if (properties === "4GADE") {
           fillColor = "#FF6347";
-          fillOpacity = 0.8;
         } else if (properties === "4RSAU") {
           fillColor = "#FF7F50";
-          fillOpacity = 0.8;
         } else if (properties === "5GPER") {
           fillColor = "#FF8C00 ";
-          fillOpacity = 0.8;
         } else if (properties === "5RWAU") {
           fillColor = "#FFA500";
-          fillOpacity = 0.8;
         } else if (properties === "6GHOB") {
           fillColor = "#FFD700";
-          fillOpacity = 0.8;
         } else if (properties === "6RTAS") {
           fillColor = "#FFEC8B";
-          fillOpacity = 0.8;
         } else if (properties === "7GDAR") {
           fillColor = "#FFFF00";
-          fillOpacity = 0.8;
         } else if (properties === "7RNTE") {
           fillColor = "#FFFACD";
-          fillOpacity = 0.8;
         } else if (properties === "8ACTE") {
           fillColor = "#FAFAD2 ";
-          fillOpacity = 0.8;
         } else if (properties === "9OTER") {
           fillColor = "#F0FFF0";
-          fillOpacity = 0.8;
         }
 
         return {
           fillColor: fillColor,
-          strokeColor: strokeColor,
-          strokeWeight: 1,
-          fillOpacity: fillOpacity,
+          strokeColor: "black",
+          strokeWeight: 1.6,
+          fillOpacity: 0.85,
         };
       });
     });

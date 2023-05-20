@@ -18,8 +18,8 @@ export default {
   name: "AgeMap",
   setup() {
     onMounted(async () => {
+      // Load map
       await loader.load();
-
       let map = new google.maps.Map(document.getElementById("ageMap"), {
         center: { lat: -28.5, lng: 135 },
         zoom: 4.6,
@@ -27,47 +27,52 @@ export default {
       });
       map.data.loadGeoJson("map.json");
 
+      // Load data
+
       map.data.setStyle(function (feature) {
         const properties = feature.getProperty("GCC_CODE21");
 
         let fillColor = "white";
-        let strokeColor = "black";
-        let fillOpacity = 0.8;
 
         if (properties === "1GSYD") {
-          fillColor = "#FF4500";
-          fillOpacity = 1;
+          fillColor = "#8B0000 ";
+        } else if (properties === "1RNSW") {
+          fillColor = "#A52A2A ";
         } else if (properties === "2GMEL") {
-          fillColor = "#FF6600";
-          fillOpacity = 1;
+          fillColor = "#B22222";
+        } else if (properties === "2RVIC") {
+          fillColor = "#DC143C";
         } else if (properties === "3GBRI") {
-          fillColor = "#FF8800";
-          fillOpacity = 1;
+          fillColor = "#FF0000";
+        } else if (properties === "3RQLD") {
+          fillColor = "#FF4500 ";
         } else if (properties === "4GADE") {
-          fillColor = "#FFAA00";
-          fillOpacity = 1;
+          fillColor = "#FF6347";
+        } else if (properties === "4RSAU") {
+          fillColor = "#FF7F50";
         } else if (properties === "5GPER") {
-          fillColor = "#FFBB33";
-          fillOpacity = 1;
+          fillColor = "#FF8C00 ";
+        } else if (properties === "5RWAU") {
+          fillColor = "#FFA500";
         } else if (properties === "6GHOB") {
-          fillColor = "#FFCC66";
-          fillOpacity = 1;
+          fillColor = "#FFD700";
+        } else if (properties === "6RTAS") {
+          fillColor = "#FFEC8B";
         } else if (properties === "7GDAR") {
-          fillColor = "#FFDD99";
-          fillOpacity = 1;
+          fillColor = "#FFFF00";
+        } else if (properties === "7RNTE") {
+          fillColor = "#FFFACD";
         } else if (properties === "8ACTE") {
-          fillColor = "#FFEECC";
-          fillOpacity = 1;
+          fillColor = "#FAFAD2 ";
         } else if (properties === "9OTER") {
-          fillColor = "#FFEECC";
-          fillOpacity = 1;
+          fillColor = "#F0FFF0";
         }
 
         return {
           fillColor: fillColor,
-          strokeColor: strokeColor,
-          strokeWeight: 1,
-          fillOpacity: fillOpacity,
+          strokeColor: "black",
+          strokeWeight: 1.6,
+          fillOpacity: 0.85,
         };
       });
     });
