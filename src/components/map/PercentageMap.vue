@@ -35,23 +35,23 @@ export default {
         let fillColor = "white";
 
         if (properties === "1GSYD") {
-          fillColor = "#8B0000 ";
+          fillColor = "#8B0000";
         } else if (properties === "1RNSW") {
-          fillColor = "#A52A2A ";
-        } else if (properties === "2GMEL") {
-          fillColor = "#B22222";
-        } else if (properties === "2RVIC") {
           fillColor = "#DC143C";
+        } else if (properties === "2GMEL") {
+          fillColor = "#FF6347";
+        } else if (properties === "2RVIC") {
+          fillColor = "#FF8C00";
         } else if (properties === "3GBRI") {
-          fillColor = "#FF0000";
+          fillColor = "#FFD700";
         } else if (properties === "3RQLD") {
-          fillColor = "#FF4500 ";
+          fillColor = "#FFFACD";
         } else if (properties === "4GADE") {
           fillColor = "#FF6347";
         } else if (properties === "4RSAU") {
           fillColor = "#FF7F50";
         } else if (properties === "5GPER") {
-          fillColor = "#FF8C00 ";
+          fillColor = "#FF8C00";
         } else if (properties === "5RWAU") {
           fillColor = "#FFA500";
         } else if (properties === "6GHOB") {
@@ -63,7 +63,7 @@ export default {
         } else if (properties === "7RNTE") {
           fillColor = "#FFFACD";
         } else if (properties === "8ACTE") {
-          fillColor = "#FAFAD2 ";
+          fillColor = "#FAFAD2";
         } else if (properties === "9OTER") {
           fillColor = "#F0FFF0";
         }
