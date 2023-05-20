@@ -1,5 +1,4 @@
 <template>
-  <AgeBar />
   <div>
     <div id="ageMap" style="width: 100%; height: 92.1vh"></div>
   </div>
@@ -9,7 +8,6 @@
 /* eslint-disable no-undef */
 import { onMounted } from "vue";
 import { Loader } from "@googlemaps/js-api-loader";
-import AgeBar from "./AgeBar.vue";
 
 const loader = new Loader({
   apiKey: process.env.VUE_APP_GOOGLE_MAPS_API_KEY,
@@ -18,7 +16,6 @@ const loader = new Loader({
 
 export default {
   name: "AgeMap",
-  components: { AgeBar },
   setup() {
     onMounted(async () => {
       // Load map

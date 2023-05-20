@@ -7,19 +7,30 @@
       </select>
     </div>
 
-    <PercentageMap v-if="selectedOption === 'percentage'" />
-    <AgeMap v-else-if="selectedOption === 'age'" />
+    <div>
+      <PercentageBar v-if="selectedOption === 'percentage'" />
+      <AgeBar v-else-if="selectedOption === 'age'" />
+    </div>
+
+    <div>
+      <PercentageMap v-if="selectedOption === 'percentage'" />
+      <AgeMap v-else-if="selectedOption === 'age'" />
+    </div>
   </div>
 </template>
 
 <script>
+import AgeBar from "./AgeBar.vue";
 import AgeMap from "./AgeMap.vue";
+import PercentageBar from "./PercentageBar.vue";
 import PercentageMap from "./PercentageMap.vue";
 
 export default {
   name: "MapDropdown",
   components: {
+    AgeBar,
     AgeMap,
+    PercentageBar,
     PercentageMap,
   },
   data() {
