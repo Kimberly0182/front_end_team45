@@ -18,14 +18,16 @@ export default {
   name: "PercentageMap",
   setup() {
     onMounted(async () => {
+      // Load map
       await loader.load();
-
       let map = new google.maps.Map(document.getElementById("percentageMap"), {
         center: { lat: -28.5, lng: 135 },
         zoom: 4.6,
         disableDefaultUI: true,
       });
       map.data.loadGeoJson("map.json");
+
+      // Load data
 
       map.data.setStyle(function (feature) {
         const properties = feature.getProperty("GCC_CODE21");
@@ -35,32 +37,53 @@ export default {
         let fillOpacity = 0.8;
 
         if (properties === "1GSYD") {
-          fillColor = "#FF4500";
-          fillOpacity = 1;
+          fillColor = "#8B0000 ";
+          fillOpacity = 0.8;
+        } else if (properties === "1RNSW") {
+          fillColor = "#A52A2A ";
+          fillOpacity = 0.8;
         } else if (properties === "2GMEL") {
-          fillColor = "#FF6600";
-          fillOpacity = 1;
+          fillColor = "#B22222";
+          fillOpacity = 0.8;
+        } else if (properties === "2RVIC") {
+          fillColor = "#DC143C";
+          fillOpacity = 0.8;
         } else if (properties === "3GBRI") {
-          fillColor = "#FF8800";
-          fillOpacity = 1;
+          fillColor = "#FF0000";
+          fillOpacity = 0.8;
+        } else if (properties === "3RQLD") {
+          fillColor = "#FF4500 ";
+          fillOpacity = 0.8;
         } else if (properties === "4GADE") {
-          fillColor = "#FFAA00";
-          fillOpacity = 1;
+          fillColor = "#FF6347";
+          fillOpacity = 0.8;
+        } else if (properties === "4RSAU") {
+          fillColor = "#FF7F50";
+          fillOpacity = 0.8;
         } else if (properties === "5GPER") {
-          fillColor = "#FFBB33";
-          fillOpacity = 1;
+          fillColor = "#FF8C00 ";
+          fillOpacity = 0.8;
+        } else if (properties === "5RWAU") {
+          fillColor = "#FFA500";
+          fillOpacity = 0.8;
         } else if (properties === "6GHOB") {
-          fillColor = "#FFCC66";
-          fillOpacity = 1;
+          fillColor = "#FFD700";
+          fillOpacity = 0.8;
+        } else if (properties === "6RTAS") {
+          fillColor = "#FFEC8B";
+          fillOpacity = 0.8;
         } else if (properties === "7GDAR") {
-          fillColor = "#FFDD99";
-          fillOpacity = 1;
+          fillColor = "#FFFF00";
+          fillOpacity = 0.8;
+        } else if (properties === "7RNTE") {
+          fillColor = "#FFFACD";
+          fillOpacity = 0.8;
         } else if (properties === "8ACTE") {
-          fillColor = "#FFEECC";
-          fillOpacity = 1;
+          fillColor = "#FAFAD2 ";
+          fillOpacity = 0.8;
         } else if (properties === "9OTER") {
-          fillColor = "#FFEECC";
-          fillOpacity = 1;
+          fillColor = "#F0FFF0";
+          fillOpacity = 0.8;
         }
 
         return {
