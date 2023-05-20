@@ -1,19 +1,19 @@
 <template>
   <div class="dashboard-container">
-    <div class="chart-row">
-      <div class="chart-card">
+    <div class="chart-row-1">
+      <div class="chart-graph">
         <!-- Age -->
         <div class="chart-content">
           <ScatterPlot/>
         </div>
       </div>
-      <div class="chart-card">
+      <div class="chart-graph">
         <!-- Pie charts about sentiments-->
         <div class="chart-content">
           <DoughnutDiagram />
         </div>
       </div>
-      <div class="chart-card">
+      <div class="chart-graph">
         <!-- rank of emoji based on sentiments (mastodon and twitter) -->
         <div class="chart-content">
           <BarEmoji />
@@ -21,14 +21,14 @@
       </div>
     </div>
   
-    <div class="chart-row">
-      <div class="chart-card">
+    <div class="chart-row-1">
+      <div class="chart-graph">
         <!-- Nationality -->
         <div class="chart-content-2">
           <BarLanguage />
         </div>
       </div>
-      <div class="chart-card">
+      <div class="chart-graph">
         <!-- Different language -->
         <div class="chart-content-2">
           <BarCountry />
@@ -66,13 +66,13 @@ export default {
   padding: 2rem;
 }
 
-.chart-row {
+.chart-row-1 {
   justify-content: space-between;
   display: flex;
   margin-bottom: 3rem;
 }
 
-.chart-card {
+.chart-graph {
   background-color: white;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
