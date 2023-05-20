@@ -1,23 +1,20 @@
 <template>
   <div class="map-container">
-    <div>
+    <div class="overlay">
       <div class="map-select">
         <select v-model="selectedOption">
           <option value="percentage">Emoji Percentage</option>
           <option value="age">Age vs. Emoji</option>
         </select>
       </div>
-
-      <div>
+      <div class="bar">
         <PercentageBar v-if="selectedOption === 'percentage'" />
         <AgeBar v-else-if="selectedOption === 'age'" />
       </div>
-
-      <div>
-        <PercentageMap v-if="selectedOption === 'percentage'" />
-        <AgeMap v-else-if="selectedOption === 'age'" />
-      </div>
     </div>
+
+    <PercentageMap v-if="selectedOption === 'percentage'" />
+    <AgeMap v-else-if="selectedOption === 'age'" />
   </div>
 </template>
 
@@ -46,12 +43,19 @@ export default {
 <style>
 .map-container {
   text-align: center;
-  padding-bottom: 10rem;
-  margin-left: 200px;
+  margin-left: 192px;
+}
+
+.bar {
+  position: absolute;
+  left: 18%;
+  top: 80%;
 }
 
 .map-select {
-  position: relative;
+  position: absolute;
+  left: 20%;
+  top: 10%;
   display: inline-block;
   font-family: Arial, sans-serif;
 }
@@ -83,5 +87,14 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 </style>
