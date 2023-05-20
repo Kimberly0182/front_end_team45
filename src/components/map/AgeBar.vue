@@ -1,10 +1,23 @@
 <template>
-  <div class="color-bar">
-    <div v-for="(color, index) in colors" :key="index" class="color-bar-item">
-      <div class="color-bar-number">{{ ages[index] }}</div>
-      <div :style="{ backgroundColor: color }" class="color-bar-color"></div>
+  <div class="color-bar-wrapper">
+    <div class="data-bar">
+      <div
+        v-for="(data, index) in dataValues"
+        :key="index"
+        class="data-bar-item"
+      >
+        <p class="data-bar-text">{{ data }}</p>
+      </div>
     </div>
-    <div class="color-bar-label">Age distribution</div>
+    <div class="color-bar">
+      <div v-for="(color, index) in colors" :key="index" class="color-bar-item">
+        <div
+          :style="{ backgroundColor: color, opacity: 0.7 }"
+          class="color-bar-color"
+        ></div>
+      </div>
+    </div>
+    <p class="color-bar-text">Age Distribution</p>
   </div>
 </template>
 
@@ -21,39 +34,43 @@ export default {
         "#FF761D",
         "#FF4711",
       ],
-      ages: [30, 33, 35, 38, 40, 43, 45],
+      dataValues: [30, 33, 35, 38, 40, 43],
     };
   },
 };
 </script>
 
 <style>
+.color-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .color-bar {
   display: flex;
   align-items: center;
 }
 
-.color-bar-item {
-  position: relative;
-  margin-right: -10px;
-}
-
-.color-bar-number {
-  font-size: 12px;
-  position: absolute;
-  top: 4px;
-  left: -20px;
-}
-
 .color-bar-color {
-  width: 100px;
   height: 20px;
+  width: 100px;
 }
 
-.color-bar-label {
-  font-size: 12px;
-  color: black;
-  margin-top: 4px;
-  margin-left: -10px;
+.data-bar {
+  display: flex;
+  align-items: center;
+}
+
+.data-bar-item {
+  margin-right: 20px;
+}
+
+.data-bar-text {
+  margin: 0;
+}
+
+.color-bar-text {
+  margin-top: 0px;
 }
 </style>
