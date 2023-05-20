@@ -28,3 +28,36 @@
     },
   };
 </script>
+
+<style>
+.dashboard-container {
+  font-family: 'Alegreya', serif;
+  background-color: #F8F9FA;
+  margin-left: 160px;
+  padding: 2rem;
+}
+
+.chart-row {
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+}
+
+.chart-card {
+  background-color: white;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  margin: 0 1rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+.chart-content {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 610px;
+}
+</style>
