@@ -39,11 +39,12 @@
 </template>
 
 <script>
-import ScatterPlot from './ScatterPlot';
-import BarLanguage from './BarLanguage.vue';
-import BarCountry from './BarCountry.vue';
-import DoughnutDiagram from './DoughnutDiagram.vue';
-import BarEmoji from './BarEmoji.vue';
+import ScatterPlot from './graph/ScatterPlot';
+import BarEmoji from './graph/BarEmoji.vue';
+import BarCountry from './graph/BarCountry.vue';
+import BarLanguage from './graph/BarLanguage.vue';
+import DoughnutDiagram from './graph/DoughnutDiagram.vue';
+
 
 export default {
   name: "GraphPage",

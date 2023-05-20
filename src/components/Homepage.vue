@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import EmojiCloud from './EmojiCloud.vue';
+import EmojiCloud from './graph/EmojiCloud.vue';
 
 export default {
   name: "HomePage",
