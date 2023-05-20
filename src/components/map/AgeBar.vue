@@ -74,7 +74,7 @@ export default {
 }
 
 .placeholder {
-  width: 19px;
+  width: 15px;
 }
 
 .color-bar-text {
