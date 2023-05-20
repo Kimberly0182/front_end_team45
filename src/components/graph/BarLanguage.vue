@@ -72,7 +72,7 @@ export default {
       .attr("y", d => y(Math.max(0, d.correlation_coefficient)))
       .attr("width", x.bandwidth())
       .attr("height", d => Math.abs(y(d.correlation_coefficient) - y(0)))
-      .style("fill", "#ffc107"); 
+      .style("fill", d => d.correlation_coefficient >= 0 ? "#ffc200" : "#ffecb3");
 
     g.append("g")
       .call(d3.axisLeft(y));

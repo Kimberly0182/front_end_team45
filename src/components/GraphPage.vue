@@ -62,8 +62,8 @@ export default {
 .dashboard-container {
   font-family: 'Alegreya', serif;
   background-color: #F8F9FA;
-  padding: 2rem;
   margin-left: 160px;
+  padding: 2rem;
 }
 
 .chart-row {
@@ -76,8 +76,8 @@ export default {
   background-color: white;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
-  padding: 2rem;
   margin: 0 1rem;
+  padding: 2rem;
   flex: 1;
 }
 

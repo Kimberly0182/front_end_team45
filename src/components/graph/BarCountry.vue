@@ -4,7 +4,7 @@
   
 <script>
 import * as d3 from 'd3';
-import { getTwitterAncestryData } from '@/api/api'; // Assuming you have a new API endpoint for this data
+import { getTwitterAncestryData } from '@/api/api';
 
 export default {
   name: "BarChart",
@@ -66,7 +66,7 @@ export default {
       .attr("y", d => y(Math.max(0, d.correlation_coefficient)))
       .attr("height", d => Math.abs(y(d.correlation_coefficient) - y(0)))
       .attr("width", x.bandwidth())
-      .style("fill", "#ffc200"); 
+      .style("fill", d => d.correlation_coefficient >= 0 ? "#ffc200" : "#ffecb3");
 
     svg.append("text")
       .attr("x", (svgWidth / 2))             

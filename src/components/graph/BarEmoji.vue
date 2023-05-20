@@ -131,8 +131,8 @@
     border: 1px solid #ced4da;
     justify-content: center;
     display: flex;
-    margin-bottom: 20px;
     border-radius: 0.25rem;
+    margin-bottom: 20px;
     padding: 10px;
   }
   
@@ -144,9 +144,9 @@
     background-color: #ffa000;
     color: white;
     border: none;
-    margin: 0 10px;
-    padding: 5px 10px;
     border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 10px;
   }
   
   .controls button:hover {
