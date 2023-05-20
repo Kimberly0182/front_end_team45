@@ -12,16 +12,7 @@ export default {
     const response = await getTwitterLanguageData();
 
     const data = response.map(item => {
-      const splitLanguage = item.language.split('_');
-
-      let language;
-
-      if (splitLanguage[2] === 'indo') {
-        language = splitLanguage.slice(2, 6).join(' ');
-      } else {
-        language = splitLanguage[2];
-      }
-
+      const language = item.language;
       return {
         ...item,
         language,

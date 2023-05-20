@@ -12,8 +12,8 @@ export default {
     const response = await getTwitterAncestryData();
 
     const data = response.map(item => {
-      const splitAncestry = item.ancestry.split('_');
-      const ancestry = splitAncestry.slice(0, -2).join(' ');
+
+      const ancestry = item.ancestry
       return {
         ...item,
         ancestry,
