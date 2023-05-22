@@ -72,7 +72,6 @@ export default {
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
 }
 
 .chart-graph {
