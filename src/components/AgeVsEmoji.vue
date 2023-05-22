@@ -11,7 +11,27 @@
     <div class="chart-row">
       <div class="chart-card">
         <div>
-          <h1>Analysis</h1> 
+          <h1>This scatter plot shows a clear negative correlation 
+            between median age and the proportion of emoji in the Tweets 
+            of that area. It suggests that people are less likely to use 
+            emojis as age increases.This is reasonable because emojis were 
+            developed around the 1990s and became popular worldwide in the 2010s.</h1>
+
+          <h1>Therefore, an area's emoji utilisation is predictable 
+            based on the median age of that area. 
+            A simple linear regression is applied to the scatter plot 
+            using the ordinary least square method, suggesting the equation:
+            Percentage = 0.4671 - 0.0051*age.
+            The significance of this regression is ensured by the F-statistic 
+            of 0.0016, and the R-square value of 0.689 further suggests that this 
+            regression model can explain a considerable variation in the data.</h1> 
+          
+          <h3>Note: </h3>
+          <h2>The regression above was generated after removing some values, 
+            they are: 6RTAS, 7GDAR, 7RNTE, 8ACTE and 9OTER.</h2>
+          <h2>Only 8ACTE (Australian Capital Territories) is removed as 
+            an outlier that will affect the regression model. </h2>
+          <h2>Other areas are removed because of insufficient data.</h2>
         </div>
       </div>
     </div>
@@ -59,5 +79,26 @@
   align-items: center;
   display: flex;
   height: 610px;
+}
+
+.chart-card h1{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.chart-card h2{
+  font-size: 16px;
+  text-align: left;
+  font-style: italic;
+}
+
+.chart-card h3{
+  border-top: 1px solid #000;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 20px;
+  font-size: 18px;
 }
 </style>

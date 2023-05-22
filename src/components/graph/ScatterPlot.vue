@@ -89,7 +89,7 @@ export default {
           .style("font-size", "20px")
           .style("font-weight", "bold")
           .style("text-decoration", "underline")
-          .text("Average age vs Percentage of Tweets containing Emojis");
+          .text("Median age vs Percentage of Tweets containing Emojis");
         
         svg.append("text")
           .attr("transform", `translate(${width / 2}, ${height + margin.bottom / 2})`)
