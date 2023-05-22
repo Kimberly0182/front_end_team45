@@ -9,8 +9,7 @@
       </select>
     </div>
     <div class="analysis">
-      <PercentageWindow v-if="selectedOption === 'percentage'" />
-      <AgeWindow v-else-if="selectedOption === 'age'" />
+      <AnalysisWindow />
     </div>
     <div class="bar">
       <PercentageBar v-if="selectedOption === 'percentage'" />
@@ -22,20 +21,18 @@
 <script>
 import AgeBar from "./map/AgeBar.vue";
 import AgeMap from "./map/AgeMap.vue";
-import AgeWindow from "./map/AgeWindow.vue";
+import AnalysisWindow from "./map/AnalysisWindow.vue";
 import PercentageBar from "./map/PercentageBar.vue";
 import PercentageMap from "./map/PercentageMap.vue";
-import PercentageWindow from "./map/PercentageWindow.vue";
 
 export default {
   name: "MapPage",
   components: {
     AgeBar,
     AgeMap,
-    AgeWindow,
+    AnalysisWindow,
     PercentageBar,
     PercentageMap,
-    PercentageWindow,
   },
   data() {
     return {
@@ -68,7 +65,7 @@ export default {
 
 .analysis {
   position: absolute;
-  left: 80%;
+  left: 82%;
   top: 10%;
   display: inline-block;
   font-family: Arial, sans-serif;
