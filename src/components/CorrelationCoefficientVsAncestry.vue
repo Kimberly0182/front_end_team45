@@ -11,7 +11,16 @@
     <div class="chart-row">
       <div class="chart-card">
         <div>
-          <h1>Analysis</h1> 
+          <h1>This bar chart shows the correlation between emoji usage and population 
+            ancestry distribution. From the graph, Italian, South African and Lebanese 
+            use the most emojis on Tweet, and Irish, Australian and Scottish use the least.</h1>
+          
+          <h1>The use of emojis of people having different ancestry backgrounds may be affected 
+            by several factors. Some important ones may be the cultural influence. An individual's 
+            ancestry or cultural background can significantly influence their communication style, 
+            whether using certain words, phrases, or non-verbal cues like emojis. On the other hand, 
+            individuals with multicultural backgrounds might show different emoji use patterns reflecting 
+            the influences of multiple cultures or ancestries.</h1>
         </div>
       </div>
     </div>
