@@ -73,7 +73,7 @@ export default {
       .attr("y", (margin.top / 2))
       .attr("text-anchor", "middle")  
       .style("text-decoration", "underline")  
-      .text("Correlation Coefficient vs Language")
+      .text("Correlation between the frequency of emoji appearance and language")
       .style("font-size", "16px");
   }
 };

@@ -53,7 +53,7 @@
 .dashboard-container {
   font-family: 'Alegreya', serif;
   background-color: #F8F9FA;
-  margin-left: 160px;
+  margin-left: 100px;
   padding: 2rem;
 }
 
@@ -62,7 +62,7 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 3rem;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .chart-card {
@@ -100,5 +100,17 @@
   text-align: left;
   margin-top: 20px;
   font-size: 18px;
+}
+
+@media (max-width: 1200px) {
+  .chart-graph {
+    flex: 1 0 46%;
+  }
+}
+
+@media (max-width: 800px) {
+  .chart-graph {
+    flex: 1 0 100%;
+  }
 }
 </style>

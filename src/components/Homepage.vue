@@ -62,21 +62,21 @@ export default {
   flex-direction: column;
   align-items: center;
   display: flex;
-  margin-left: 160px;
+  margin-left: 180px;
   margin-bottom: 20px;
-  padding: 3rem;
 }
 
 .image-emoji {
   text-align: center;
   padding-bottom: 5rem;
-  margin-left: 240px;
+  margin-left: 100px;
 }
 
 .bordered-image {
   border: 1px solid #ccc;
   border-radius: 50%;
   max-width: 800px;
+  min-width: 600px;
 }
 
 .row {
