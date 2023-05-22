@@ -4,8 +4,8 @@
     <AgeMap v-else-if="selectedOption === 'age'" />
     <div class="map-select">
       <select v-model="selectedOption">
-        <option value="percentage">Emoji Percentage</option>
-        <option value="age">Age vs. Emoji</option>
+        <option value="percentage">% Tweets contain Emojis</option>
+        <option value="age">Median Age</option>
       </select>
     </div>
     <div class="analysis">
@@ -80,7 +80,7 @@ export default {
   border: 1px solid #ccc;
   padding: 0.5em 2em 0.5em 1em;
   font-size: 16px;
-  width: 200px;
+  width: 220px;
   cursor: pointer;
 }
 
