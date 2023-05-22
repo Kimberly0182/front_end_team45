@@ -63,6 +63,7 @@ export default {
   align-items: center;
   display: flex;
   margin-left: 160px;
+  margin-bottom: 20px;
   padding: 3rem;
 }
 
@@ -75,7 +76,7 @@ export default {
 .bordered-image {
   border: 1px solid #ccc;
   border-radius: 50%;
-  max-width: 1000px;
+  max-width: 800px;
 }
 
 .row {

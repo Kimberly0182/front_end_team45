@@ -78,7 +78,7 @@
   };
 </script>
 
-<style>
+<style scoped>
 .dashboard-container {
   font-family: 'Alegreya', serif;
   background-color: #F8F9FA;
@@ -89,6 +89,7 @@
 .chart-row {
   justify-content: space-between;
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 3rem;
 }
 
@@ -98,12 +99,20 @@
   border-radius: 0.5rem;
   margin: 0 1rem;
   padding: 2rem;
-  flex: 1;
+  flex: 1 0 46%;
+  margin-bottom: 10px;
 }
 
 .chart-content {
   justify-content: center;
   align-items: center;
-  height: 660px;
+  display: flex;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .chart-card {
+    flex: 1 0 100%;
+  }
 }
 </style>
