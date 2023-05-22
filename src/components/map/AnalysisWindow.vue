@@ -18,7 +18,9 @@
         tweet will contain emojis, and vice versa. Except there are some
         outliers, namely the northern and capital territories.
       </p>
-      <p v-if="showText">(more on this is discussed in the graph section)</p>
+      <p v-if="showText" style="font-style: italic; opacity: 0.6">
+        (more on this is discussed in the graph section)
+      </p>
     </div>
     <button v-if="showText" @click="showText = false" class="close-button">
       Close

@@ -17,7 +17,7 @@
         ></div>
       </div>
     </div>
-    <p class="color-bar-text">% tweets contain emoji</p>
+    <p class="color-bar-text">% tweets containing emoji</p>
   </div>
 </template>
 

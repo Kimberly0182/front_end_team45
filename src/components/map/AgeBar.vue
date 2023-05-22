@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <p class="color-bar-text">Age Distribution</p>
+    <p class="color-bar-text">Age distribution</p>
   </div>
 </template>
 
