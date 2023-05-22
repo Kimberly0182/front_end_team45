@@ -64,11 +64,14 @@ export default {
   background-color: #F8F9FA;
   margin-left: 160px;
   padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .chart-row-1 {
   justify-content: space-between;
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 3rem;
 }
 
@@ -78,20 +81,26 @@ export default {
   border-radius: 0.5rem;
   margin: 0 1rem;
   padding: 2rem;
-  flex: 1;
+  margin-bottom: 10px;
+  flex: 1 0 21%;
 }
 
-.chart-content {
+.chart-content, .chart-content-2 {
   justify-content: center;
   align-items: center;
   display: flex;
-  height: 610px;
+  height: auto;
 }
 
-.chart-content-2 {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 450px;
+@media (max-width: 1200px) {
+  .chart-graph {
+    flex: 1 0 46%;
+  }
+}
+
+@media (max-width: 800px) {
+  .chart-graph {
+    flex: 1 0 100%;
+  }
 }
 </style>
